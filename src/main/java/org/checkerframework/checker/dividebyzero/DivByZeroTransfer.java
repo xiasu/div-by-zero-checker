@@ -72,6 +72,140 @@ public class DivByZeroTransfer extends CFTransfer {
             AnnotationMirror lhs,
             AnnotationMirror rhs) {
         // TODO
+        switch (operator){
+            case EQ:
+                if(equal(rhs,reflect(Zero.class))){
+                    return glb(lhs, reflect(Zero.class));
+                }
+                else if(equal(rhs,reflect(Pos.class))){
+                    return glb(lhs,reflect(Pos.class));
+                }
+                else if(equal(rhs,reflect(Neg.class))){
+                    return glb(lhs,reflect(Neg.class));
+                }
+                else if(equal(rhs,reflect(Geq0.class))){
+                    return glb(lhs,reflect(Geq0.class));
+                }
+                else if(equal(rhs,reflect(Leq0.class))){
+                    return glb(lhs,reflect(Leq0.class));
+                }else if(equal(rhs,reflect(Nzero.class))){
+                    return glb(lhs,reflect(Nzero.class));
+                }else if(equal(rhs,reflect(Top.class))){
+                    return glb(lhs,reflect(Top.class));
+                }else if(equal(rhs,reflect(Btm.class))){
+                    return glb(lhs,reflect(Btm.class));
+                }
+            case GE:
+                if(equal(rhs,reflect(Zero.class))){
+                    return glb(lhs,reflect(Geq0.class));
+                }
+                else if(equal(rhs,reflect(Pos.class))){
+                    return glb(lhs,reflect(Pos.class));
+                }
+                else if(equal(rhs,reflect(Neg.class))){
+                    return glb(lhs,reflect(Top.class));
+                }
+                else if(equal(rhs,reflect(Geq0.class))){
+                    return glb(lhs,reflect(Geq0.class));
+                }
+                else if(equal(rhs,reflect(Leq0.class))){
+                    return glb(lhs,reflect(Top.class));
+                }else if(equal(rhs,reflect(Nzero.class))){
+                    return glb(lhs,reflect(Nzero.class));
+                }else if(equal(rhs,reflect(Top.class))){
+                    return glb(lhs,reflect(Top.class));
+                }else if(equal(rhs,reflect(Btm.class))){
+                    return glb(lhs,reflect(Btm.class));
+                }
+            case GT:
+                if(equal(rhs,reflect(Zero.class))){
+                    return glb(lhs,reflect(Pos.class));
+                }
+                else if(equal(rhs,reflect(Pos.class))){
+                    return glb(lhs,reflect(Pos.class));
+                }
+                else if(equal(rhs,reflect(Neg.class))){
+                    return glb(lhs,reflect(Top.class));
+                }
+                else if(equal(rhs,reflect(Geq0.class))){
+                    return glb(lhs,reflect(Pos.class));
+                }
+                else if(equal(rhs,reflect(Leq0.class))){
+                    return glb(lhs,reflect(Top.class));
+                }else if(equal(rhs,reflect(Nzero.class))){
+                    return glb(lhs,reflect(Nzero.class));
+                }else if(equal(rhs,reflect(Top.class))){
+                    return glb(lhs,reflect(Top.class));
+                }else if(equal(rhs,reflect(Btm.class))){
+                    return glb(lhs,reflect(Btm.class));
+                }
+            case LE:
+                if(equal(rhs,reflect(Zero.class))){
+                    return glb(lhs,reflect(Leq0.class));
+                }
+                else if(equal(rhs,reflect(Pos.class))){
+                    return glb(lhs,reflect(Top.class));
+                }
+                else if(equal(rhs,reflect(Neg.class))){
+                    return glb(lhs,reflect(Neg.class));
+                }
+                else if(equal(rhs,reflect(Geq0.class))){
+                    return glb(lhs,reflect(Top.class));
+                }
+                else if(equal(rhs,reflect(Leq0.class))){
+                    return glb(lhs,reflect(Leq0.class));
+                }else if(equal(rhs,reflect(Nzero.class))){
+                    return glb(lhs,reflect(Top.class));
+                }else if(equal(rhs,reflect(Top.class))){
+                    return glb(lhs,reflect(Top.class));
+                }else if(equal(rhs,reflect(Btm.class))){
+                    return glb(lhs,reflect(Btm.class));
+                }
+            case LT:
+                if(equal(rhs,reflect(Zero.class))){
+                    return glb(lhs,reflect(Neg.class));
+                }
+                else if(equal(rhs,reflect(Pos.class))){
+                    return glb(lhs,reflect(Top.class));
+                }
+                else if(equal(rhs,reflect(Neg.class))){
+                    return glb(lhs,reflect(Neg.class));
+                }
+                else if(equal(rhs,reflect(Geq0.class))){
+                    return glb(lhs,reflect(Top.class));
+                }
+                else if(equal(rhs,reflect(Leq0.class))){
+                    return glb(lhs,reflect(Neg.class));
+                }else if(equal(rhs,reflect(Nzero.class))){
+                    return glb(lhs,reflect(Top.class));
+                }else if(equal(rhs,reflect(Top.class))){
+                    return glb(lhs,reflect(Top.class));
+                }else if(equal(rhs,reflect(Btm.class))){
+                    return glb(lhs,reflect(Btm.class));
+                }
+            case NE:
+                if(equal(rhs,reflect(Zero.class))){
+                    return glb(lhs,reflect(Nzero.class));
+                }
+                else if(equal(rhs,reflect(Pos.class))){
+                    return glb(lhs,reflect(Top.class));
+                }
+                else if(equal(rhs,reflect(Neg.class))){
+                    return glb(lhs,reflect(Top.class));
+                }
+                else if(equal(rhs,reflect(Geq0.class))){
+                    return glb(lhs,reflect(Top.class));
+                }
+                else if(equal(rhs,reflect(Leq0.class))){
+                    return glb(lhs,reflect(Top.class));
+                }else if(equal(rhs,reflect(Nzero.class))){
+                    return glb(lhs,reflect(Zero.class));
+                }else if(equal(rhs,reflect(Top.class))){
+                    return glb(lhs,reflect(Top.class));
+                }else if(equal(rhs,reflect(Btm.class))){
+                    return glb(lhs,reflect(Btm.class));
+                }
+        }
         return lhs;
     }
 
@@ -94,6 +228,822 @@ public class DivByZeroTransfer extends CFTransfer {
             AnnotationMirror lhs,
             AnnotationMirror rhs) {
         // TODO
+        switch (operator) {
+            case PLUS: {
+                if(equal(lhs, reflect(Zero.class)))
+                {
+                    if(equal(rhs,reflect(Zero.class))){
+                        return reflect(Zero.class);
+                    }
+                    else if(equal(rhs,reflect(Pos.class))){
+                        return reflect(Pos.class);
+                    }
+                    else if(equal(rhs,reflect(Neg.class))){
+                        return reflect(Neg.class);
+                    }
+                    else if(equal(rhs,reflect(Geq0.class))){
+                        return reflect(Geq0.class);
+                    }
+                    else if(equal(rhs,reflect(Leq0.class))){
+                        return reflect(Leq0.class);
+                    }else if(equal(rhs,reflect(Nzero.class))){
+                        return reflect(Nzero.class);
+                    }else if(equal(rhs,reflect(Top.class))){
+                        return reflect(Top.class);
+                    }else if(equal(rhs,reflect(Btm.class))){
+                        return reflect(Btm.class);
+                    }
+                } else if(equal(lhs,reflect(Pos.class))){
+                    if(equal(rhs,reflect(Zero.class))){
+                        return reflect(Pos.class);
+                    }
+                    else if(equal(rhs,reflect(Pos.class))){
+                        return reflect(Pos.class);
+                    }
+                    else if(equal(rhs,reflect(Neg.class))){
+                        return reflect(Top.class);
+                    }
+                    else if(equal(rhs,reflect(Geq0.class))){
+                        return reflect(Pos.class);
+                    }
+                    else if(equal(rhs,reflect(Leq0.class))){
+                        return reflect(Top.class);
+                    }else if(equal(rhs,reflect(Nzero.class))){
+                        return reflect(Top.class);
+                    }else if(equal(rhs,reflect(Top.class))){
+                        return reflect(Top.class);
+                    }else if(equal(rhs,reflect(Btm.class))){
+                        return reflect(Btm.class);
+                    }
+                }
+                else if(equal(lhs,reflect(Neg.class))){
+                    if(equal(rhs,reflect(Zero.class))){
+                        return reflect(Neg.class);
+                    }
+                    else if(equal(rhs,reflect(Pos.class))){
+                        return reflect(Top.class);
+                    }
+                    else if(equal(rhs,reflect(Neg.class))){
+                        return reflect(Neg.class);
+                    }
+                    else if(equal(rhs,reflect(Geq0.class))){
+                        return reflect(Top.class);
+                    }
+                    else if(equal(rhs,reflect(Leq0.class))){
+                        return reflect(Neg.class);
+                    }else if(equal(rhs,reflect(Nzero.class))){
+                        return reflect(Top.class);
+                    }else if(equal(rhs,reflect(Top.class))){
+                        return reflect(Top.class);
+                    }else if(equal(rhs,reflect(Btm.class))){
+                        return reflect(Btm.class);
+                    }
+                }
+                else if(equal(lhs,reflect(Geq0.class))){
+                    if(equal(rhs,reflect(Zero.class))){
+                        return reflect(Geq0.class);
+                    }
+                    else if(equal(rhs,reflect(Pos.class))){
+                        return reflect(Pos.class);
+                    }
+                    else if(equal(rhs,reflect(Neg.class))){
+                        return reflect(Top.class);
+                    }
+                    else if(equal(rhs,reflect(Geq0.class))){
+                        return reflect(Geq0.class);
+                    }
+                    else if(equal(rhs,reflect(Leq0.class))){
+                        return reflect(Top.class);
+                    }else if(equal(rhs,reflect(Nzero.class))){
+                        return reflect(Top.class);
+                    }else if(equal(rhs,reflect(Top.class))){
+                        return reflect(Top.class);
+                    }else if(equal(rhs,reflect(Btm.class))){
+                        return reflect(Btm.class);
+                    }
+                }
+                else if(equal(lhs,reflect(Leq0.class))){
+                    if(equal(rhs,reflect(Zero.class))){
+                        return reflect(Leq0.class);
+                    }
+                    else if(equal(rhs,reflect(Pos.class))){
+                        return reflect(Top.class);
+                    }
+                    else if(equal(rhs,reflect(Neg.class))){
+                        return reflect(Neg.class);
+                    }
+                    else if(equal(rhs,reflect(Geq0.class))){
+                        return reflect(Top.class);
+                    }
+                    else if(equal(rhs,reflect(Leq0.class))){
+                        return reflect(Leq0.class);
+                    }else if(equal(rhs,reflect(Nzero.class))){
+                        return reflect(Top.class);
+                    }else if(equal(rhs,reflect(Top.class))){
+                        return reflect(Top.class);
+                    }else if(equal(rhs,reflect(Btm.class))){
+                        return reflect(Btm.class);
+                    }
+                }else if(equal(lhs,reflect(Nzero.class))){
+                    if(equal(rhs,reflect(Zero.class))){
+                        return reflect(Nzero.class);
+                    }
+                    else if(equal(rhs,reflect(Pos.class))){
+                        return reflect(Top.class);
+                    }
+                    else if(equal(rhs,reflect(Neg.class))){
+                        return reflect(Top.class);
+                    }
+                    else if(equal(rhs,reflect(Geq0.class))){
+                        return reflect(Top.class);
+                    }
+                    else if(equal(rhs,reflect(Leq0.class))){
+                        return reflect(Top.class);
+                    }else if(equal(rhs,reflect(Nzero.class))){
+                        return reflect(Nzero.class);
+                    }else if(equal(rhs,reflect(Top.class))){
+                        return reflect(Top.class);
+                    }else if(equal(rhs,reflect(Btm.class))){
+                        return reflect(Btm.class);
+                    }
+                }else if(equal(lhs,reflect(Top.class))){
+                    if(equal(rhs,reflect(Zero.class))){
+                        return reflect(Top.class);
+                    }
+                    else if(equal(rhs,reflect(Pos.class))){
+                        return reflect(Top.class);
+                    }
+                    else if(equal(rhs,reflect(Neg.class))){
+                        return reflect(Top.class);
+                    }
+                    else if(equal(rhs,reflect(Geq0.class))){
+                        return reflect(Top.class);
+                    }
+                    else if(equal(rhs,reflect(Leq0.class))){
+                        return reflect(Top.class);
+                    }else if(equal(rhs,reflect(Nzero.class))){
+                        return reflect(Top.class);
+                    }else if(equal(rhs,reflect(Top.class))){
+                        return reflect(Top.class);
+                    }else if(equal(rhs,reflect(Btm.class))){
+                        return reflect(Btm.class);
+                    }
+                }else if(equal(lhs,reflect(Btm.class))){
+                    return reflect(Btm.class);
+                }
+            }
+
+            case MINUS:
+                if(equal(lhs, reflect(Zero.class)))
+                {
+                    if(equal(rhs,reflect(Zero.class))){
+                        return reflect(Zero.class);
+                    }
+                    else if(equal(rhs,reflect(Pos.class))){
+                        return reflect(Neg.class);
+                    }
+                    else if(equal(rhs,reflect(Neg.class))){
+                        return reflect(Pos.class);
+                    }
+                    else if(equal(rhs,reflect(Geq0.class))){
+                        return reflect(Leq0.class);
+                    }
+                    else if(equal(rhs,reflect(Leq0.class))){
+                        return reflect(Geq0.class);
+                    }else if(equal(rhs,reflect(Nzero.class))){
+                        return reflect(Nzero.class);
+                    }else if(equal(rhs,reflect(Top.class))){
+                        return reflect(Top.class);
+                    }else if(equal(rhs,reflect(Btm.class))){
+                        return reflect(Btm.class);
+                    }
+                } else if(equal(lhs,reflect(Pos.class))){
+                    if(equal(rhs,reflect(Zero.class))){
+                        return reflect(Pos.class);
+                    }
+                    else if(equal(rhs,reflect(Pos.class))){
+                        return reflect(Top.class);
+                    }
+                    else if(equal(rhs,reflect(Neg.class))){
+                        return reflect(Pos.class);
+                    }
+                    else if(equal(rhs,reflect(Geq0.class))){
+                        return reflect(Top.class);
+                    }
+                    else if(equal(rhs,reflect(Leq0.class))){
+                        return reflect(Pos.class);
+                    }else if(equal(rhs,reflect(Nzero.class))){
+                        return reflect(Top.class);
+                    }else if(equal(rhs,reflect(Top.class))){
+                        return reflect(Top.class);
+                    }else if(equal(rhs,reflect(Btm.class))){
+                        return reflect(Btm.class);
+                    }
+                }
+                else if(equal(lhs,reflect(Neg.class))){
+                    if(equal(rhs,reflect(Zero.class))){
+                        return reflect(Neg.class);
+                    }
+                    else if(equal(rhs,reflect(Pos.class))){
+                        return reflect(Neg.class);
+                    }
+                    else if(equal(rhs,reflect(Neg.class))){
+                        return reflect(Top.class);
+                    }
+                    else if(equal(rhs,reflect(Geq0.class))){
+                        return reflect(Neg.class);
+                    }
+                    else if(equal(rhs,reflect(Leq0.class))){
+                        return reflect(Top.class);
+                    }else if(equal(rhs,reflect(Nzero.class))){
+                        return reflect(Top.class);
+                    }else if(equal(rhs,reflect(Top.class))){
+                        return reflect(Top.class);
+                    }else if(equal(rhs,reflect(Btm.class))){
+                        return reflect(Btm.class);
+                    }
+                }
+                else if(equal(lhs,reflect(Geq0.class))){
+                    if(equal(rhs,reflect(Zero.class))){
+                        return reflect(Geq0.class);
+                    }
+                    else if(equal(rhs,reflect(Pos.class))){
+                        return reflect(Top.class);
+                    }
+                    else if(equal(rhs,reflect(Neg.class))){
+                        return reflect(Pos.class);
+                    }
+                    else if(equal(rhs,reflect(Geq0.class))){
+                        return reflect(Top.class);
+                    }
+                    else if(equal(rhs,reflect(Leq0.class))){
+                        return reflect(Geq0.class);
+                    }else if(equal(rhs,reflect(Nzero.class))){
+                        return reflect(Top.class);
+                    }else if(equal(rhs,reflect(Top.class))){
+                        return reflect(Top.class);
+                    }else if(equal(rhs,reflect(Btm.class))){
+                        return reflect(Btm.class);
+                    }
+                }
+                else if(equal(lhs,reflect(Leq0.class))){
+                    if(equal(rhs,reflect(Zero.class))){
+                        return reflect(Leq0.class);
+                    }
+                    else if(equal(rhs,reflect(Pos.class))){
+                        return reflect(Neg.class);
+                    }
+                    else if(equal(rhs,reflect(Neg.class))){
+                        return reflect(Top.class);
+                    }
+                    else if(equal(rhs,reflect(Geq0.class))){
+                        return reflect(Leq0.class);
+                    }
+                    else if(equal(rhs,reflect(Leq0.class))){
+                        return reflect(Top.class);
+                    }else if(equal(rhs,reflect(Nzero.class))){
+                        return reflect(Top.class);
+                    }else if(equal(rhs,reflect(Top.class))){
+                        return reflect(Top.class);
+                    }else if(equal(rhs,reflect(Btm.class))){
+                        return reflect(Btm.class);
+                    }
+                }else if(equal(lhs,reflect(Nzero.class))){
+                    if(equal(rhs,reflect(Zero.class))){
+                        return reflect(Nzero.class);
+                    }
+                    else if(equal(rhs,reflect(Pos.class))){
+                        return reflect(Top.class);
+                    }
+                    else if(equal(rhs,reflect(Neg.class))){
+                        return reflect(Top.class);
+                    }
+                    else if(equal(rhs,reflect(Geq0.class))){
+                        return reflect(Top.class);
+                    }
+                    else if(equal(rhs,reflect(Leq0.class))){
+                        return reflect(Top.class);
+                    }else if(equal(rhs,reflect(Nzero.class))){
+                        return reflect(Nzero.class);
+                    }else if(equal(rhs,reflect(Top.class))){
+                        return reflect(Top.class);
+                    }else if(equal(rhs,reflect(Btm.class))){
+                        return reflect(Btm.class);
+                    }
+                }else if(equal(lhs,reflect(Top.class))){
+                    if(equal(rhs,reflect(Zero.class))){
+                        return reflect(Top.class);
+                    }
+                    else if(equal(rhs,reflect(Pos.class))){
+                        return reflect(Top.class);
+                    }
+                    else if(equal(rhs,reflect(Neg.class))){
+                        return reflect(Top.class);
+                    }
+                    else if(equal(rhs,reflect(Geq0.class))){
+                        return reflect(Top.class);
+                    }
+                    else if(equal(rhs,reflect(Leq0.class))){
+                        return reflect(Top.class);
+                    }else if(equal(rhs,reflect(Nzero.class))){
+                        return reflect(Top.class);
+                    }else if(equal(rhs,reflect(Top.class))){
+                        return reflect(Top.class);
+                    }else if(equal(rhs,reflect(Btm.class))){
+                        return reflect(Btm.class);
+                    }
+                }else if(equal(lhs,reflect(Btm.class))){
+                    return reflect(Btm.class);
+                }
+
+            case TIMES:
+                if(equal(lhs, reflect(Zero.class)))
+                {
+                    if(equal(rhs,reflect(Zero.class))){
+                        return reflect(Zero.class);
+                    }
+                    else if(equal(rhs,reflect(Pos.class))){
+                        return reflect(Zero.class);
+                    }
+                    else if(equal(rhs,reflect(Neg.class))){
+                        return reflect(Zero.class);
+                    }
+                    else if(equal(rhs,reflect(Geq0.class))){
+                        return reflect(Zero.class);
+                    }
+                    else if(equal(rhs,reflect(Leq0.class))){
+                        return reflect(Zero.class);
+                    }else if(equal(rhs,reflect(Nzero.class))){
+                        return reflect(Zero.class);
+                    }else if(equal(rhs,reflect(Top.class))){
+                        return reflect(Zero.class);
+                    }else if(equal(rhs,reflect(Btm.class))){
+                        return reflect(Btm.class);
+                    }
+                } else if(equal(lhs,reflect(Pos.class))){
+                    if(equal(rhs,reflect(Zero.class))){
+                        return reflect(Zero.class);
+                    }
+                    else if(equal(rhs,reflect(Pos.class))){
+                        return reflect(Pos.class);
+                    }
+                    else if(equal(rhs,reflect(Neg.class))){
+                        return reflect(Neg.class);
+                    }
+                    else if(equal(rhs,reflect(Geq0.class))){
+                        return reflect(Geq0.class);
+                    }
+                    else if(equal(rhs,reflect(Leq0.class))){
+                        return reflect(Leq0.class);
+                    }else if(equal(rhs,reflect(Nzero.class))){
+                        return reflect(Nzero.class);
+                    }else if(equal(rhs,reflect(Top.class))){
+                        return reflect(Top.class);
+                    }else if(equal(rhs,reflect(Btm.class))){
+                        return reflect(Btm.class);
+                    }
+                }
+                else if(equal(lhs,reflect(Neg.class))){
+                    if(equal(rhs,reflect(Zero.class))){
+                        return reflect(Zero.class);
+                    }
+                    else if(equal(rhs,reflect(Pos.class))){
+                        return reflect(Neg.class);
+                    }
+                    else if(equal(rhs,reflect(Neg.class))){
+                        return reflect(Pos.class);
+                    }
+                    else if(equal(rhs,reflect(Geq0.class))){
+                        return reflect(Leq0.class);
+                    }
+                    else if(equal(rhs,reflect(Leq0.class))){
+                        return reflect(Geq0.class);
+                    }else if(equal(rhs,reflect(Nzero.class))){
+                        return reflect(Nzero.class);
+                    }else if(equal(rhs,reflect(Top.class))){
+                        return reflect(Top.class);
+                    }else if(equal(rhs,reflect(Btm.class))){
+                        return reflect(Btm.class);
+                    }
+                }
+                else if(equal(lhs,reflect(Geq0.class))){
+                    if(equal(rhs,reflect(Zero.class))){
+                        return reflect(Zero.class);
+                    }
+                    else if(equal(rhs,reflect(Pos.class))){
+                        return reflect(Geq0.class);
+                    }
+                    else if(equal(rhs,reflect(Neg.class))){
+                        return reflect(Leq0.class);
+                    }
+                    else if(equal(rhs,reflect(Geq0.class))){
+                        return reflect(Geq0.class);
+                    }
+                    else if(equal(rhs,reflect(Leq0.class))){
+                        return reflect(Leq0.class);
+                    }else if(equal(rhs,reflect(Nzero.class))){
+                        return reflect(Nzero.class);
+                    }else if(equal(rhs,reflect(Top.class))){
+                        return reflect(Top.class);
+                    }else if(equal(rhs,reflect(Btm.class))){
+                        return reflect(Btm.class);
+                    }
+                }
+                else if(equal(lhs,reflect(Leq0.class))){
+                    if(equal(rhs,reflect(Zero.class))){
+                        return reflect(Zero.class);
+                    }
+                    else if(equal(rhs,reflect(Pos.class))){
+                        return reflect(Leq0.class);
+                    }
+                    else if(equal(rhs,reflect(Neg.class))){
+                        return reflect(Geq0.class);
+                    }
+                    else if(equal(rhs,reflect(Geq0.class))){
+                        return reflect(Leq0.class);
+                    }
+                    else if(equal(rhs,reflect(Leq0.class))){
+                        return reflect(Geq0.class);
+                    }else if(equal(rhs,reflect(Nzero.class))){
+                        return reflect(Nzero.class);
+                    }else if(equal(rhs,reflect(Top.class))){
+                        return reflect(Top.class);
+                    }else if(equal(rhs,reflect(Btm.class))){
+                        return reflect(Btm.class);
+                    }
+                }else if(equal(lhs,reflect(Nzero.class))){
+                    if(equal(rhs,reflect(Zero.class))){
+                        return reflect(Zero.class);
+                    }
+                    else if(equal(rhs,reflect(Pos.class))){
+                        return reflect(Nzero.class);
+                    }
+                    else if(equal(rhs,reflect(Neg.class))){
+                        return reflect(Nzero.class);
+                    }
+                    else if(equal(rhs,reflect(Geq0.class))){
+                        return reflect(Top.class);
+                    }
+                    else if(equal(rhs,reflect(Leq0.class))){
+                        return reflect(Top.class);
+                    }else if(equal(rhs,reflect(Nzero.class))){
+                        return reflect(Nzero.class);
+                    }else if(equal(rhs,reflect(Top.class))){
+                        return reflect(Top.class);
+                    }else if(equal(rhs,reflect(Btm.class))){
+                        return reflect(Btm.class);
+                    }
+                }else if(equal(lhs,reflect(Top.class))){
+                    if(equal(rhs,reflect(Zero.class))){
+                        return reflect(Zero.class);
+                    }
+                    else if(equal(rhs,reflect(Pos.class))){
+                        return reflect(Top.class);
+                    }
+                    else if(equal(rhs,reflect(Neg.class))){
+                        return reflect(Top.class);
+                    }
+                    else if(equal(rhs,reflect(Geq0.class))){
+                        return reflect(Top.class);
+                    }
+                    else if(equal(rhs,reflect(Leq0.class))){
+                        return reflect(Top.class);
+                    }else if(equal(rhs,reflect(Nzero.class))){
+                        return reflect(Top.class);
+                    }else if(equal(rhs,reflect(Top.class))){
+                        return reflect(Top.class);
+                    }else if(equal(rhs,reflect(Btm.class))){
+                        return reflect(Btm.class);
+                    }
+                }else if(equal(lhs,reflect(Btm.class))){
+                    return reflect(Btm.class);
+                }
+            case DIVIDE:
+                if(equal(lhs, reflect(Zero.class)))
+                {
+                    if(equal(rhs,reflect(Zero.class))){
+                        return reflect(Btm.class);
+                    }
+                    else if(equal(rhs,reflect(Pos.class))){
+                        return reflect(Zero.class);
+                    }
+                    else if(equal(rhs,reflect(Neg.class))){
+                        return reflect(Zero.class);
+                    }
+                    else if(equal(rhs,reflect(Geq0.class))){
+                        return reflect(Btm.class);
+                    }
+                    else if(equal(rhs,reflect(Leq0.class))){
+                        return reflect(Btm.class);
+                    }else if(equal(rhs,reflect(Nzero.class))){
+                        return reflect(Zero.class);
+                    }else if(equal(rhs,reflect(Top.class))){
+                        return reflect(Btm.class);
+                    }else if(equal(rhs,reflect(Btm.class))){
+                        return reflect(Btm.class);
+                    }
+                } else if(equal(lhs,reflect(Pos.class))){
+                    if(equal(rhs,reflect(Zero.class))){
+                        return reflect(Btm.class);
+                    }
+                    else if(equal(rhs,reflect(Pos.class))){
+                        return reflect(Pos.class);
+                    }
+                    else if(equal(rhs,reflect(Neg.class))){
+                        return reflect(Neg.class);
+                    }
+                    else if(equal(rhs,reflect(Geq0.class))){
+                        return reflect(Btm.class);
+                    }
+                    else if(equal(rhs,reflect(Leq0.class))){
+                        return reflect(Btm.class);
+                    }else if(equal(rhs,reflect(Nzero.class))){
+                        return reflect(Nzero.class);
+                    }else if(equal(rhs,reflect(Top.class))){
+                        return reflect(Btm.class);
+                    }else if(equal(rhs,reflect(Btm.class))){
+                        return reflect(Btm.class);
+                    }
+                }
+                else if(equal(lhs,reflect(Neg.class))){
+                    if(equal(rhs,reflect(Zero.class))){
+                        return reflect(Btm.class);
+                    }
+                    else if(equal(rhs,reflect(Pos.class))){
+                        return reflect(Neg.class);
+                    }
+                    else if(equal(rhs,reflect(Neg.class))){
+                        return reflect(Pos.class);
+                    }
+                    else if(equal(rhs,reflect(Geq0.class))){
+                        return reflect(Btm.class);
+                    }
+                    else if(equal(rhs,reflect(Leq0.class))){
+                        return reflect(Btm.class);
+                    }else if(equal(rhs,reflect(Nzero.class))){
+                        return reflect(Nzero.class);
+                    }else if(equal(rhs,reflect(Top.class))){
+                        return reflect(Btm.class);
+                    }else if(equal(rhs,reflect(Btm.class))){
+                        return reflect(Btm.class);
+                    }
+                }
+                else if(equal(lhs,reflect(Geq0.class))){
+                    if(equal(rhs,reflect(Zero.class))){
+                        return reflect(Btm.class);
+                    }
+                    else if(equal(rhs,reflect(Pos.class))){
+                        return reflect(Geq0.class);
+                    }
+                    else if(equal(rhs,reflect(Neg.class))){
+                        return reflect(Leq0.class);
+                    }
+                    else if(equal(rhs,reflect(Geq0.class))){
+                        return reflect(Btm.class);
+                    }
+                    else if(equal(rhs,reflect(Leq0.class))){
+                        return reflect(Btm.class);
+                    }else if(equal(rhs,reflect(Nzero.class))){
+                        return reflect(Nzero.class);
+                    }else if(equal(rhs,reflect(Top.class))){
+                        return reflect(Btm.class);
+                    }else if(equal(rhs,reflect(Btm.class))){
+                        return reflect(Btm.class);
+                    }
+                }
+                else if(equal(lhs,reflect(Leq0.class))){
+                    if(equal(rhs,reflect(Zero.class))){
+                        return reflect(Btm.class);
+                    }
+                    else if(equal(rhs,reflect(Pos.class))){
+                        return reflect(Leq0.class);
+                    }
+                    else if(equal(rhs,reflect(Neg.class))){
+                        return reflect(Geq0.class);
+                    }
+                    else if(equal(rhs,reflect(Geq0.class))){
+                        return reflect(Btm.class);
+                    }
+                    else if(equal(rhs,reflect(Leq0.class))){
+                        return reflect(Btm.class);
+                    }else if(equal(rhs,reflect(Nzero.class))){
+                        return reflect(Nzero.class);
+                    }else if(equal(rhs,reflect(Top.class))){
+                        return reflect(Btm.class);
+                    }else if(equal(rhs,reflect(Btm.class))){
+                        return reflect(Btm.class);
+                    }
+                }else if(equal(lhs,reflect(Nzero.class))){
+                    if(equal(rhs,reflect(Zero.class))){
+                        return reflect(Btm.class);
+                    }
+                    else if(equal(rhs,reflect(Pos.class))){
+                        return reflect(Nzero.class);
+                    }
+                    else if(equal(rhs,reflect(Neg.class))){
+                        return reflect(Nzero.class);
+                    }
+                    else if(equal(rhs,reflect(Geq0.class))){
+                        return reflect(Btm.class);
+                    }
+                    else if(equal(rhs,reflect(Leq0.class))){
+                        return reflect(Btm.class);
+                    }else if(equal(rhs,reflect(Nzero.class))){
+                        return reflect(Nzero.class);
+                    }else if(equal(rhs,reflect(Top.class))){
+                        return reflect(Btm.class);
+                    }else if(equal(rhs,reflect(Btm.class))){
+                        return reflect(Btm.class);
+                    }
+                }else if(equal(lhs,reflect(Top.class))){
+                    if(equal(rhs,reflect(Zero.class))){
+                        return reflect(Btm.class);
+                    }
+                    else if(equal(rhs,reflect(Pos.class))){
+                        return reflect(Top.class);
+                    }
+                    else if(equal(rhs,reflect(Neg.class))){
+                        return reflect(Top.class);
+                    }
+                    else if(equal(rhs,reflect(Geq0.class))){
+                        return reflect(Btm.class);
+                    }
+                    else if(equal(rhs,reflect(Leq0.class))){
+                        return reflect(Btm.class);
+                    }else if(equal(rhs,reflect(Nzero.class))){
+                        return reflect(Top.class);
+                    }else if(equal(rhs,reflect(Top.class))){
+                        return reflect(Btm.class);
+                    }else if(equal(rhs,reflect(Btm.class))){
+                        return reflect(Btm.class);
+                    }
+                }else if(equal(lhs,reflect(Btm.class))){
+                    return reflect(Btm.class);
+                }
+            case MOD:
+                if(equal(lhs, reflect(Zero.class)))
+                {
+                    if(equal(rhs,reflect(Zero.class))){
+                        return reflect(Btm.class);
+                    }
+                    else if(equal(rhs,reflect(Pos.class))){
+                        return reflect(Zero.class);
+                    }
+                    else if(equal(rhs,reflect(Neg.class))){
+                        return reflect(Zero.class);
+                    }
+                    else if(equal(rhs,reflect(Geq0.class))){
+                        return reflect(Btm.class);
+                    }
+                    else if(equal(rhs,reflect(Leq0.class))){
+                        return reflect(Btm.class);
+                    }else if(equal(rhs,reflect(Nzero.class))){
+                        return reflect(Zero.class);
+                    }else if(equal(rhs,reflect(Top.class))){
+                        return reflect(Btm.class);
+                    }else if(equal(rhs,reflect(Btm.class))){
+                        return reflect(Btm.class);
+                    }
+                } else if(equal(lhs,reflect(Pos.class))){
+                    if(equal(rhs,reflect(Zero.class))){
+                        return reflect(Btm.class);
+                    }
+                    else if(equal(rhs,reflect(Pos.class))){
+                        return reflect(Geq0.class);
+                    }
+                    else if(equal(rhs,reflect(Neg.class))){
+                        return reflect(Geq0.class);
+                    }
+                    else if(equal(rhs,reflect(Geq0.class))){
+                        return reflect(Btm.class);
+                    }
+                    else if(equal(rhs,reflect(Leq0.class))){
+                        return reflect(Btm.class);
+                    }else if(equal(rhs,reflect(Nzero.class))){
+                        return reflect(Geq0.class);
+                    }else if(equal(rhs,reflect(Top.class))){
+                        return reflect(Btm.class);
+                    }else if(equal(rhs,reflect(Btm.class))){
+                        return reflect(Btm.class);
+                    }
+                }
+                else if(equal(lhs,reflect(Neg.class))){
+                    if(equal(rhs,reflect(Zero.class))){
+                        return reflect(Btm.class);
+                    }
+                    else if(equal(rhs,reflect(Pos.class))){
+                        return reflect(Geq0.class);
+                    }
+                    else if(equal(rhs,reflect(Neg.class))){
+                        return reflect(Geq0.class);
+                    }
+                    else if(equal(rhs,reflect(Geq0.class))){
+                        return reflect(Btm.class);
+                    }
+                    else if(equal(rhs,reflect(Leq0.class))){
+                        return reflect(Btm.class);
+                    }else if(equal(rhs,reflect(Nzero.class))){
+                        return reflect(Geq0.class);
+                    }else if(equal(rhs,reflect(Top.class))){
+                        return reflect(Btm.class);
+                    }else if(equal(rhs,reflect(Btm.class))){
+                        return reflect(Btm.class);
+                    }
+                }
+                else if(equal(lhs,reflect(Geq0.class))){
+                    if(equal(rhs,reflect(Zero.class))){
+                        return reflect(Btm.class);
+                    }
+                    else if(equal(rhs,reflect(Pos.class))){
+                        return reflect(Geq0.class);
+                    }
+                    else if(equal(rhs,reflect(Neg.class))){
+                        return reflect(Geq0.class);
+                    }
+                    else if(equal(rhs,reflect(Geq0.class))){
+                        return reflect(Btm.class);
+                    }
+                    else if(equal(rhs,reflect(Leq0.class))){
+                        return reflect(Btm.class);
+                    }else if(equal(rhs,reflect(Nzero.class))){
+                        return reflect(Geq0.class);
+                    }else if(equal(rhs,reflect(Top.class))){
+                        return reflect(Btm.class);
+                    }else if(equal(rhs,reflect(Btm.class))){
+                        return reflect(Btm.class);
+                    }
+                }
+                else if(equal(lhs,reflect(Leq0.class))){
+                    if(equal(rhs,reflect(Zero.class))){
+                        return reflect(Btm.class);
+                    }
+                    else if(equal(rhs,reflect(Pos.class))){
+                        return reflect(Geq0.class);
+                    }
+                    else if(equal(rhs,reflect(Neg.class))){
+                        return reflect(Geq0.class);
+                    }
+                    else if(equal(rhs,reflect(Geq0.class))){
+                        return reflect(Btm.class);
+                    }
+                    else if(equal(rhs,reflect(Leq0.class))){
+                        return reflect(Btm.class);
+                    }else if(equal(rhs,reflect(Nzero.class))){
+                        return reflect(Geq0.class);
+                    }else if(equal(rhs,reflect(Top.class))){
+                        return reflect(Btm.class);
+                    }else if(equal(rhs,reflect(Btm.class))){
+                        return reflect(Btm.class);
+                    }
+                }else if(equal(lhs,reflect(Nzero.class))){
+                    if(equal(rhs,reflect(Zero.class))){
+                        return reflect(Btm.class);
+                    }
+                    else if(equal(rhs,reflect(Pos.class))){
+                        return reflect(Geq0.class);
+                    }
+                    else if(equal(rhs,reflect(Neg.class))){
+                        return reflect(Geq0.class);
+                    }
+                    else if(equal(rhs,reflect(Geq0.class))){
+                        return reflect(Btm.class);
+                    }
+                    else if(equal(rhs,reflect(Leq0.class))){
+                        return reflect(Btm.class);
+                    }else if(equal(rhs,reflect(Nzero.class))){
+                        return reflect(Geq0.class);
+                    }else if(equal(rhs,reflect(Top.class))){
+                        return reflect(Btm.class);
+                    }else if(equal(rhs,reflect(Btm.class))){
+                        return reflect(Btm.class);
+                    }
+                }else if(equal(lhs,reflect(Top.class))){
+                    if(equal(rhs,reflect(Zero.class))){
+                        return reflect(Btm.class);
+                    }
+                    else if(equal(rhs,reflect(Pos.class))){
+                        return reflect(Geq0.class);
+                    }
+                    else if(equal(rhs,reflect(Neg.class))){
+                        return reflect(Geq0.class);
+                    }
+                    else if(equal(rhs,reflect(Geq0.class))){
+                        return reflect(Btm.class);
+                    }
+                    else if(equal(rhs,reflect(Leq0.class))){
+                        return reflect(Btm.class);
+                    }else if(equal(rhs,reflect(Nzero.class))){
+                        return reflect(Geq0.class);
+                    }else if(equal(rhs,reflect(Top.class))){
+                        return reflect(Btm.class);
+                    }else if(equal(rhs,reflect(Btm.class))){
+                        return reflect(Btm.class);
+                    }
+                }else if(equal(lhs,reflect(Btm.class))){
+                    return reflect(Btm.class);
+                }
+        }
+
         return top();
     }
 
