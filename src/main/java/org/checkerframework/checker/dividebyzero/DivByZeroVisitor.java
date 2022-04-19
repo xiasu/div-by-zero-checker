@@ -31,25 +31,9 @@ public class DivByZeroVisitor extends BaseTypeVisitor<DivByZeroAnnotatedTypeFact
     private boolean errorAt(BinaryTree node) {
         // A BinaryTree can represent any binary operator, including + or -.
         // TODO
-        if(hasAnnotation(node.getRightOperand(),Zero.class))
-            System.out.print("Zero");
-        if(hasAnnotation(node.getRightOperand(),Geq0.class))
-            System.out.print("Geq0");
-        if(hasAnnotation(node.getRightOperand(),Leq0.class))
-            System.out.print("Leq0");
-        if(hasAnnotation(node.getRightOperand(),Top.class))
-            System.out.print("Top");
-        if(hasAnnotation(node.getRightOperand(),Pos.class))
-            System.out.print("Pos");
-        if(hasAnnotation(node.getRightOperand(),Neg.class))
-            System.out.print("Neg");
-        if(hasAnnotation(node.getRightOperand(),Btm.class))
-            System.out.print("Btm");
-        if(hasAnnotation(node.getRightOperand(),Nzero.class))
-            System.out.print("Nzero");
+
         if(node.getKind()== Tree.Kind.DIVIDE || node.getKind()== Tree.Kind.REMAINDER || node.getKind()== Tree.Kind.DIVIDE_ASSIGNMENT ||node.getKind()== Tree.Kind.REMAINDER_ASSIGNMENT)
         {
-            System.out.print("Binary Tree At");
             if(hasAnnotation(node.getRightOperand(),Zero.class) ||hasAnnotation(node.getRightOperand(),Geq0.class) ||hasAnnotation(node.getRightOperand(),Leq0.class) ||hasAnnotation(node.getRightOperand(),Top.class))
                 return true;
         }
@@ -66,26 +50,9 @@ public class DivByZeroVisitor extends BaseTypeVisitor<DivByZeroAnnotatedTypeFact
         // A CompoundAssignmentTree represents any binary operator combined with an assignment,
         // such as "x += 10".
         // TODO
-        if(hasAnnotation(node.getExpression(),Zero.class))
-            System.out.print("Zero");
-        if(hasAnnotation(node.getExpression(),Geq0.class))
-            System.out.print("Geq0");
-        if(hasAnnotation(node.getExpression(),Leq0.class))
-            System.out.print("Leq0");
-        if(hasAnnotation(node.getExpression(),Top.class))
-            System.out.print("Top");
-        if(hasAnnotation(node.getExpression(),Pos.class))
-            System.out.print("Pos");
-        if(hasAnnotation(node.getExpression(),Neg.class))
-            System.out.print("Neg");
-        if(hasAnnotation(node.getExpression(),Btm.class))
-            System.out.print("Btm");
-        if(hasAnnotation(node.getExpression(),Nzero.class))
-            System.out.print("Nzero");
-        System.out.print("Assignment Tree At");
+
         if(node.getKind()== Tree.Kind.DIVIDE || node.getKind()== Tree.Kind.REMAINDER || node.getKind()== Tree.Kind.DIVIDE_ASSIGNMENT ||node.getKind()== Tree.Kind.REMAINDER_ASSIGNMENT)
         {
-            System.out.print("Being judged");
             if(hasAnnotation(node.getExpression(),Zero.class) ||hasAnnotation(node.getExpression(),Geq0.class) ||hasAnnotation(node.getExpression(),Leq0.class) ||hasAnnotation(node.getExpression(),Top.class))
                 return true;
         }
